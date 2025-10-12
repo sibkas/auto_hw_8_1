@@ -21,9 +21,9 @@ public class DBUtils {
         var runner = new QueryRunner();
         var dataSQL = "INSERT INTO users(id, login, password) VALUES (?, ?, ?);";
 
-        try (var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/testdb", "root", "1234")) {
-            runner.update(conn, dataSQL, UUID.randomUUID().toString(), faker.name().username(), "1234");
-            runner.update(conn, dataSQL, UUID.randomUUID().toString(), faker.name().username(), "1234");
+        try (var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass")) {
+            runner.update(conn, dataSQL, UUID.randomUUID().toString(), faker.name().username(), "pass");
+            runner.update(conn, dataSQL, UUID.randomUUID().toString(), faker.name().username(), "pass");
         }
     }
 
@@ -33,7 +33,7 @@ public class DBUtils {
         var countSQL = "SELECT COUNT(*) FROM users;";
         var usersSQL = "SELECT * FROM users;";
         var runner = new QueryRunner();
-        try (var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/testdb", "root", "1234")) {
+        try (var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "root", "1234")) {
             var count = runner.query(conn, countSQL, new ScalarHandler<>());
             System.out.println(count);
             User first = runner.query(conn, usersSQL, new BeanHandler<>(User.class));

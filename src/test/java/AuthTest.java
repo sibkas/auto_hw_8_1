@@ -21,9 +21,9 @@ public class AuthTest {
     void stubTest() {
         var count = SQLHelper.countUsers();
         log.info(String.valueOf(count));
-        var first = SQLHelper.getFistUser();
+        var first = SQLHelper.getFirstUser();
         log.info(String.valueOf(first));
-        var all = SQLHelper.getUser();
+        var all = SQLHelper.getUsers();
         log.info(String.valueOf(all));
     }
 }
