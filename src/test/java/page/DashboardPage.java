@@ -6,7 +6,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class DashboardPage {
 
-    public void shouldBeVisible() {
+    public DashboardPage() {
         $("h2").shouldBe(visible).shouldHave(text("Личный кабинет"));
     }
 }

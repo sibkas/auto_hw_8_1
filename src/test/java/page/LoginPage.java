@@ -1,12 +1,14 @@
 package page;
 
 import com.codeborne.selenide.Selenide;
+
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
 
-    public void openPage() {
+    public LoginPage() {
         Selenide.open("http://localhost:9999");
     }
 
@@ -17,6 +19,8 @@ public class LoginPage {
     }
 
     public void shouldShowBlockageError() {
-        $("[data-test-id='error-notification']").shouldBe(visible);
+        $("[data-test-id='error-notification']")
+                .shouldBe(visible)
+                .shouldHave(text("ошибка"));
     }
 }
