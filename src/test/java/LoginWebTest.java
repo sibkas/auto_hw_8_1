@@ -1,3 +1,4 @@
+import data.DataHelper;
 import data.SQLHelper;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,16 +10,15 @@ import static data.DataHelper.generateRandomPassword;
 
 public class LoginWebTest {
 
-    private final String VALID_LOGIN = "vasya";
-    private final String UNENCRYPTED_PASSWORD = "qwerty123";
-    private final String HASHED_PASSWORD = "5e884898da28047151d0e56f8dc6292773603d0d6aab9099955383569421f1d1";
+    private final String VALID_LOGIN = DataHelper.getValidLogin();
+    private final String UNENCRYPTED_PASSWORD = DataHelper.getUnencryptedPassword();
+    private final String HASHED_PASSWORD = DataHelper.getHashedPassword();
 
     private LoginPage loginPage;
 
     @BeforeEach
     void setUp() {
-        SQLHelper.cleanDB();
-        SQLHelper.updateUsers(VALID_LOGIN, HASHED_PASSWORD);
+
         // Открытие страницы логина
         loginPage = new LoginPage();
     }
@@ -62,7 +62,9 @@ public class LoginWebTest {
 
     @Test
     void shouldVerifyWithCode() {
+        // Получаем код подтверждения из БД
+        String verificationCode = SQLHelper.getVerificationCode();
         VerificationPage verificationPage = new VerificationPage();
-        verificationPage.verify("12345");
+        verificationPage.verify(verificationCode);
     }
 }

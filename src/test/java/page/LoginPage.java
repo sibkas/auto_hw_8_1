@@ -21,6 +21,6 @@ public class LoginPage {
     public void shouldShowBlockageError() {
         $("[data-test-id='error-notification']")
                 .shouldBe(visible)
-                .shouldHave(text("ошибка"));
+                .shouldHave(text("блокирован"));
     }
 }
