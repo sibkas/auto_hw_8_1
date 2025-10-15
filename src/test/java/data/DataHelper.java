@@ -6,7 +6,7 @@ public class DataHelper {
     private static final Faker FAKER = new Faker();
 
     private static final String VALID_LOGIN = "vasya";
-    private static final String UNENCRYPTED_PASSWORD = "password";
+    private static final String UNENCRYPTED_PASSWORD = "qwerty123";
     private static final String HASHED_PASSWORD = "5e884898da28047151d0e56f8dc6292773603d0d6aab9099955383569421f1d1";
 
     public static String getValidLogin() {
@@ -14,7 +14,7 @@ public class DataHelper {
     }
 
     public static String getUnencryptedPassword() {
-        return "password";
+        return "qwerty123";
     }
 
     public static String getHashedPassword() {

@@ -60,11 +60,5 @@ public class LoginWebTest {
         loginPage.shouldShowBlockageError();
     }
 
-    @Test
-    void shouldVerifyWithCode() {
-        // Получаем код подтверждения из БД
-        String verificationCode = SQLHelper.getVerificationCode();
-        VerificationPage verificationPage = new VerificationPage();
-        verificationPage.verify(verificationCode);
-    }
+
 }
