@@ -49,7 +49,7 @@ public class LoginWebTest {
     }
 
     @Test
-    void shouldBlockUserAfterThreeFailedAttempts() {
+    void shouldShowLoginError() {
         String wrongPassword = generateRandomPassword();
 
 
@@ -57,7 +57,7 @@ public class LoginWebTest {
             loginPage.login(VALID_LOGIN, wrongPassword);
         }
 
-        loginPage.shouldShowBlockageError();
+        loginPage.shouldShowLoginError();
     }
 
 

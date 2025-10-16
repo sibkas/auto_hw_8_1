@@ -30,7 +30,7 @@ public class LoginPage {
     }
 
 
-    public void shouldShowBlockageError() {
+    public void shouldShowLoginError() {
         $("[data-test-id='error-notification']")
                 .shouldBe(visible)
                 .shouldHave(text("Ошибка! Неверно указан логин или пароль"));
